@@ -1,0 +1,170 @@
+@import 'constants';
+
+/**
+ * Basic styling for common components.
+ * All styles can be overridden by more specific selector (e.g. "button.className")
+ */
+
+@mixin buttonColoring($button-base-color, $button-interaction-color) {
+  background-color: darken($button-base-color, 25%);
+  border: 1px solid $button-base-color;
+  box-shadow: 0.25em 0.25em rgba($button-base-color, 0.25);
+
+  &:disabled {
+    background-color: darken($button-base-color, 20%);
+    border: 1px solid $button-base-color;
+    box-shadow: 0.25em 0.25em rgba($button-base-color, 0.25);
+  }
+
+  &:hover, &:focus {
+    background-color: darken($button-interaction-color, 30%);
+    border: 1px solid $button-interaction-color;
+    box-shadow: 0.25em 0.25em rgba($button-interaction-color, 0.5);
+  }
+
+  &:active {
+    background-color: darken($button-interaction-color, 20%);
+    border: 1px solid $button-interaction-color;
+  }
+}
+
+button, [aria-label="button"], input {
+  margin: 0;
+  font-size: 1em;
+  padding: 0.4em 0.5em;
+  color: $font-color;
+  font-family: inherit;
+  line-height: 100%;
+  box-sizing: border-box;
+  white-space: nowrap;
+
+  transition: background-color $transition-normal ease-in-out, border $transition-normal ease-in-out, box-shadow $transition-normal ease-in-out;
+
+  @include buttonColoring($action-color, $accent-color-important);
+
+  &:disabled {
+    color: rgba($font-color, 0.2);
+  }
+}
+
+button, [aria-label="button"] {
+  font-family: $font-family-header;
+  &.inline-button {
+    height: 1em;
+    width: 1em;
+    box-sizing: content-box;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+  }
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+
+  &::placeholder {
+    font-weight: $font-normal;
+    color: rgba($font-color, 0.5);
+  }
+
+  &.inline-input {
+    display: inline-block;
+    border: none;
+    background: none;
+    box-shadow: none;
+    padding: 0.2em;
+
+    transition: border-bottom-color $transition-normal;
+    border-bottom: $action-color 2px solid;
+    border-top: transparent 2px solid; // small fix to make text inside input to align to text baseline.
+
+    &:hover {
+      border-bottom: lighten($action-color, 10%) 2px solid;
+    }
+
+    &:active {
+      border-bottom: lighten($action-color, 20%) 2px solid;
+    }
+  }
+}
+
+/**
+ * Radio button styling.
+ */
+input[type="radio"] {
+  padding: 0;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  box-shadow: none;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-radius: 50%;
+    background-color: $accent-color-important;
+    opacity: 0;
+  }
+
+  &:checked::before {
+    opacity: 1;
+  }
+}
+
+img {
+  border: 3px solid $layout-color;
+  transition: $transition-normal;
+  box-sizing: border-box;
+
+  &:hover {
+    border-color: lighten($layout-color, 20%);
+  }
+
+  &.clickable:active {
+    border-color: $accent-color-important;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  thead {
+    background-color: rgba($layout-color, 0.5);
+
+    th {
+      text-align: left;
+      font-family: $font-family-header;
+      font-size: 1.1rem;
+      font-weight: bolder;
+      padding: 0.25rem 0.5rem;
+    }
+  }
+
+  tbody {
+    tr {
+      transition: background-color $transition-normal;
+
+      &:nth-child(odd) {
+        background-color: rgba($layout-color, 0.2);
+      }
+
+      &:hover {
+        background-color: rgba($layout-color, 0.6);
+      }
+
+      td {
+        padding: 0.25rem 0.5rem;
+      }
+    }
+  }
+}

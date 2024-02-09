@@ -1,0 +1,26 @@
+@use 'sass:map';
+@import "fonts";
+
+/**
+ * Core colors.
+ */
+$app-surface: #FFD6D6;
+
+/**
+ * Layout color should be used for layout purposes to make some parts of an app stand out from background.
+ */
+$action-color: #D64040; // color for action buttons and similar
+
+/**
+ * Accent colors are bright colors for highlights.
+ */
+$accent-color-danger: #ED264E;
+/**
+ * Color for focus/active elements, should match very well with layout-color
+ */
+$accent-color-important: #FFD84D;
+$accent-color-good-stuff: #26ED4A;
+
+$font-color: #000;
+$layout-color: darken(#FFD6D6, 10%);
+$transition-normal: 100ms;

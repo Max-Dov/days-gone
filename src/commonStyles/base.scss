@@ -1,0 +1,103 @@
+@import "constants";
+@import "fonts";
+@import "components";
+
+body {
+  background-color: $app-surface;
+  font-family: $font-family-paragraph;
+  color: $font-color;
+  margin: 0;
+  padding: 0;
+  font-weight: $font-normal;
+}
+
+a {
+  color: $font-color;
+  transition: color $transition-normal ease-in-out;
+  &:hover {
+    color: $accent-color-important;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 1rem 0;
+}
+
+p {
+  margin: 1em 0;
+}
+
+.header-font {
+  font-family: $font-family-header;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.helper-text {
+  font-family: $font-family-paragraph;
+  font-weight: $font-normal;
+}
+
+$outline-basic: 2px dashed $accent-color-important;
+$outline-offset-basic: 0.25rem;
+
+a, input, button {
+  outline: 2px dashed transparent;
+  &:focus {
+    outline-offset: 0.25rem;
+    outline-color: $accent-color-important;
+  }
+}
+
+strong {
+  color: $accent-color-important;
+  font-weight: bold;
+}
+
+::selection {
+  background-color: rgba($accent-color-important, 0.8);
+  color: $font-color;
+}
+
+* {
+  &::-webkit-scrollbar {
+    background-color: rgba($layout-color, 0.1);
+    width: 1rem;
+  }
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($action-color, 0.4);
+    &:hover {
+      background-color: rgba($action-color, 0.8);
+    }
+  }
+  &::-webkit-scrollbar-button {
+    display: none;
+  }
+}
+
+body {
+  overflow-y: scroll;
+}
+
+svg {
+  display: inline-block;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.numeric-field {
+  text-align: right;
+}
+
+.width-100 {
+  width: 100%;
+}
