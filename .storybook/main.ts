@@ -24,12 +24,7 @@ const config: StorybookConfig = {
     '@storybook/preset-scss'
   ],
   staticDirs: [
-    '../public/assets/images/other',
-    '../public/assets/images/factions',
-    '../public/assets/images/trade-goods',
-    '../public/assets/images/ships',
-    '../public/assets/svg',
-    '../public/assets/models',
+    // '../public/assets/images/other',
   ],
   framework: {
     name: '@storybook/react-webpack5',
