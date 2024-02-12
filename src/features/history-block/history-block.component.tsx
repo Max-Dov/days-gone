@@ -2,8 +2,6 @@ import React from "react"
 import "./history-block.styles.scss";
 import { Day } from "@types";
 
-
-
 interface HistoryBlockProps {
   days: Day[];
 }
@@ -18,11 +16,12 @@ const getMonthNameOfWeek = (week: Array<Day>): string => {
 };
 
 export const HistoryBlock = ({ days }: HistoryBlockProps) => {
+  const dayOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   const weeks: Array<Array<Day>> = [];
 
   for (let i = 0, week: Array<Day> = []; i < days.length; i++) {
     const day = new Date(days[i].date).getDay();
-    
+
     week.push(days[i]);
 
     if (day === 0) {
@@ -62,6 +61,11 @@ export const HistoryBlock = ({ days }: HistoryBlockProps) => {
   return (
     <div className="container">
       <div className="months">
+        <div className="day-of-week">
+          {dayOfWeek.map(day => {
+            return <span>{day}</span>
+          })}
+        </div>
         {months.map((month, i) => {
           return <div className="month" key={i}>
             {month.name}
