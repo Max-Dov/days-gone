@@ -68,7 +68,7 @@ export const HistoryBlock = ({ days }: HistoryBlockProps) => {
         </div>
         {months.map((month, i) => {
           return <div className="month" key={i}>
-            {month.name}
+            <span>{month.name}</span>
             <div className="weeks">
               {month.weeks.map((week, i) => (
                 <div className="week" key={i}>

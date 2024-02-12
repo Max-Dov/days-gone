@@ -29,18 +29,24 @@ $gap-between-days: 0.2em;
       flex-direction: column;
       gap: $gap-between-days;
 
+      span {
+        font-size: 0.6em;
+        font-weight: lighter;
+        color: rgba($font-color, 0.8);
+      }
+
       .weeks {
         display: flex;
         gap: 2em $gap-between-days;
-
-        &:first-child {
-          align-items: flex-end;
-        }
 
         .week {
           display: flex;
           flex-direction: column;
           gap: $gap-between-days;
+
+          &:first-child {
+          justify-content: flex-end;
+        }
 
           .day {
             width: 0.5em;
