@@ -37,7 +37,7 @@ const generateDay = (date: Date): Day => ({
 const startDate = new Date(2024, 1, 1).getTime();
 const msInDay = 24 * 60 * 60 * 1000;
 
-export const historyDays: Array<Day> = new Array(600)
+export const historyDays: Array<Day> = new Array(5)
 .fill(1)
 .map((_, index) => 
   generateDay(new Date(startDate + msInDay * index))

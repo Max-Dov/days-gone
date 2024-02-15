@@ -15,7 +15,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const defaultArgs: Story['args'] = {
-  days: []
+  days: [],
+  daysToDisplay: 365
 };
 
 export const defaultHistory: Story = {
