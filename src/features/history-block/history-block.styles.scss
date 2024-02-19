@@ -33,6 +33,7 @@ $gap-between-days: 0.2em;
         font-size: 0.6em;
         font-weight: lighter;
         color: rgba($font-color, 0.8);
+        cursor: pointer;
       }
 
       .weeks {
@@ -49,15 +50,22 @@ $gap-between-days: 0.2em;
         }
 
           .day {
-            width: 0.5em;
-            height: 0.5em;
-            border: 2px solid rgb(51, 255, 0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 0.8rem;
+            height: 0.8rem;
+            border: none;
             border-radius: 4px;
             background: rgb(51, 255, 0);
+            font-size: 0.4em;
 
             &.empty {
               background: rgb(189, 189, 189);
-              border: 2px solid rgb(189, 189, 189);
+            }
+
+            &.hovered {
+              opacity: 0.5;
             }
           }
         }
