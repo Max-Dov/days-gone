@@ -1,29 +1,30 @@
 @import 'constants';
 
 /**
- * Basic styling for common components.
+ * Basic styling for common components (button, input, table, img).
  * All styles can be overridden by more specific selector (e.g. "button.className")
  */
 
 @mixin buttonColoring($button-base-color, $button-interaction-color) {
-  background-color: darken($button-base-color, 25%);
+  background-color: rgba($button-base-color, 0.25);
   border: 1px solid $button-base-color;
+  border-radius: 0.25em;
   box-shadow: 0.25em 0.25em rgba($button-base-color, 0.25);
 
   &:disabled {
-    background-color: darken($button-base-color, 20%);
+    background-color: lighten($button-base-color, 20%);
     border: 1px solid $button-base-color;
     box-shadow: 0.25em 0.25em rgba($button-base-color, 0.25);
   }
 
   &:hover, &:focus {
-    background-color: darken($button-interaction-color, 30%);
+    background-color: lighten($button-interaction-color, 30%);
     border: 1px solid $button-interaction-color;
     box-shadow: 0.25em 0.25em rgba($button-interaction-color, 0.5);
   }
 
   &:active {
-    background-color: darken($button-interaction-color, 20%);
+    background-color: lighten($button-interaction-color, 20%);
     border: 1px solid $button-interaction-color;
   }
 }
@@ -40,7 +41,11 @@ button, [aria-label="button"], input {
 
   transition: background-color $transition-normal ease-in-out, border $transition-normal ease-in-out, box-shadow $transition-normal ease-in-out;
 
-  @include buttonColoring($action-color, $accent-color-important);
+  @each $class-name, $color in $colors-map {
+    &.#{$class-name} {
+      @include buttonColoring($color, $action-color);
+    }
+  }
 
   &:disabled {
     color: rgba($font-color, 0.2);

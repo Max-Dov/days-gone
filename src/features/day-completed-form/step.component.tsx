@@ -1,20 +1,21 @@
 import { DayBit, DayBitDescriptor } from '@types';
-import React, { useEffect } from 'react';
+import React from 'react';
+import classNames from 'classnames';
 
 interface StepProps {
   descriptor: DayBitDescriptor;
   onComplete: (value: DayBit) => void;
+  onBack: () => void;
 }
 
-export const Step = ({ descriptor, onComplete }: StepProps) => {
+export const Step = ({ descriptor, onComplete, onBack }: StepProps) => {
   const { question, color, id } = descriptor;
 
-  useEffect(() => {
-    document.documentElement.style.setProperty('--current-step-color', color);
-  }, [color]);
-
-  return <div className="step-container">
+  return <div className={classNames('step-container', color)}>
     {question}
-    <button onClick={() => onComplete({ id, value: 1 })}>Complete</button>
+    <div className="action-buttons-row">
+      <button className={color} onClick={onBack}>Prev</button>
+      <button className={color} onClick={() => onComplete({ id, value: 1 })}>Next</button>
+    </div>
   </div>;
 };

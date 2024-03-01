@@ -9,7 +9,7 @@ $app-surface: #FFD6D6;
 /**
  * Layout color should be used for layout purposes to make some parts of an app stand out from background.
  */
-$action-color: #D64040; // color for action buttons and similar
+$action-color: #FFD84D; // color for action buttons and similar
 
 /**
  * Accent colors are bright colors for highlights.
@@ -23,4 +23,17 @@ $accent-color-good-stuff: #26ED4A;
 
 $font-color: #000;
 $layout-color: darken(#FFD6D6, 10%);
+
 $transition-normal: 100ms;
+$transition-slow: 500ms;
+
+/**
+ * Keys are used as classNames.
+ */
+$colors-map: (
+  'color-1': #1BE7FF,
+  'color-2': #6EEB83,
+  'color-3': #E4FF1A,
+  'color-4': #F0C256,
+  'color-5': #FF5714,
+)

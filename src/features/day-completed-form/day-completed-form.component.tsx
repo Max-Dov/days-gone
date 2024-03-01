@@ -33,6 +33,12 @@ export const DayCompletedForm = ({
     setStep(step + 1);
   };
 
+  const onBack = () => {
+    if (step > 0) {
+      setStep(step - 1);
+    }
+  }
+
   useEffect(() => {
     if (!dayBitsDescriptors) {
       fetchDayBitsDescriptors();
@@ -47,8 +53,13 @@ export const DayCompletedForm = ({
     if (descriptorsLength === 0) {
       content = <Placeholder>No questions?</Placeholder>;
     } else if (step < descriptorsLength) {
-      content = <Step descriptor={dayBitsDescriptors[step]} onComplete={onStepCompleted} />;
+      content = <Step
+        descriptor={dayBitsDescriptors[step]}
+        onComplete={onStepCompleted}
+        onBack={onBack}
+      />;
     } else if (step === descriptorsLength) {
+       // todo add small "restart" or "back" inline button (no border, just underline)
       content = <Placeholder>Day saved! 🍀</Placeholder>;
     }
   }
